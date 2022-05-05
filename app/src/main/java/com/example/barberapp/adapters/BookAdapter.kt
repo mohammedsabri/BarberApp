@@ -3,6 +3,7 @@ package com.example.barberapp.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.barberapp.R
 import com.example.barberapp.databinding.CardBookBinding
 import com.example.barberapp.models.BookModel
 
@@ -27,9 +28,11 @@ class BookAdapter constructor(private var books: List<BookModel>)
     inner class MainHolder(val binding : CardBookBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(book: BookModel) {
-//            binding.paymentamount.text = donation.amount.toString()
-//            binding.paymentmethod.text = donation.paymentmethod
-//            binding.imageIcon.setImageResource(R.mipmap.ic_launcher_round)
+            binding.root.tag = book
+            binding.book = book
+            binding.imageIcon.setImageResource(R.mipmap.ic_launcher_round)
+          //  binding.root.setOnClickListener { listener.onBookClick(book) }
+              binding.executePendingBindings()
         }
     }
 }

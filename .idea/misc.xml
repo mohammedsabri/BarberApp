@@ -19,7 +19,7 @@
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.2785185185185185" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/card_appointment.xml" value="0.21354166666666666" />
-        <entry key="app/src/main/res/layout/card_book.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/card_book.xml" value="0.1" />
         <entry key="app/src/main/res/layout/card_services.xml" value="0.25" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_about.xml" value="0.2375" />
