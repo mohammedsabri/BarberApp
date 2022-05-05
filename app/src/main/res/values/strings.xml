@@ -10,8 +10,27 @@
     <string name="menu_book">Book</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_appointments">Appointments</string>
-    <string name="paypal" />
+    <string name="menu_about">About</string>
+
+    <string name="bookTitle" > Book An Appointment</string>
     <string name="todo">TODO</string>
+    <string name="emailpassword_title_text">emailpassword</string>
+    <string name="desc_firebase_lockup">desc</string>
+    <string name="hint_email">hint email</string>
+    <string name="hint_password">hint password</string>
+    <string name="sign_in">sign in</string>
+    <string name="create_account">create account</string>
+    <string name="sign_out">sign out</string>
+    <string name="verify_email">verify email</string>
+    <string name="signed_out">sign out</string>
+    <string name="auth_failed">failed</string>
+    <string name="time">time</string>
+    <string name="select_appointment_image">Select appointment image</string>
+    <string name="hint_cost">cost</string>
+    <string name="hint_barber_name">barber name</string>
+    <string name="action_About">About</string>
+    <string name="aboutus_message">message</string>
+
     <string-array name="time_array">
         <item>11:00</item>
         <item>12:00</item>

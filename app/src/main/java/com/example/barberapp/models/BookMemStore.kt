@@ -1,6 +1,6 @@
 package com.example.barberapp.models
 
-
+import timber.log.Timber
 
 
 var lastId = 0L
@@ -29,7 +29,7 @@ class BookMemStore : BookStore {
     }
 
     fun logAll() {
-        //Timber.v("** Appointments List **")
-       // appointments.forEach { Timber.v("Appointment ${it}") }
+        Timber.v("** Appointments List **")
+//        appointments.forEach { Timber.v("Appointment ${it}") }
     }
 }

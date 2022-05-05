@@ -15,7 +15,7 @@ import com.example.barberapp.main.BookXApp
 class BookFragment : Fragment() {
 
     lateinit var app: BookXApp
-    var totalDonated = 0
+//    var totalDonated = 0
     private var _fragBinding: FragmentBookBinding? = null
     private val fragBinding get() = _fragBinding!!
     //lateinit var navController: NavController
@@ -27,54 +27,44 @@ class BookFragment : Fragment() {
         //navController = Navigation.findNavController(activity!!, R.id.nav_host_fragment)
     }
 
-//    override fun onCreateView(
-//        inflater: LayoutInflater, container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View? {
-//
-//        _fragBinding = FragmentBookBinding.inflate(inflater, container, false)
-//        val root = fragBinding.root
-//        activity?.title = getString(R.string.action_donate)
-//
-//        fragBinding.progressBar.max = 10000
-//        fragBinding.amountPicker.minValue = 1
-//        fragBinding.amountPicker.maxValue = 1000
-//
-//        fragBinding.amountPicker.setOnValueChangedListener { _, _, newVal ->
-//            //Display the newly selected number to paymentAmount
-//            fragBinding.paymentAmount.setText("$newVal")
-//        }
-//        setButtonListener(fragBinding)
-//        return root;
-//    }
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
-//    companion object {
-//        @JvmStatic
-//        fun newInstance() =
-//            DonateFragment().apply {
-//                arguments = Bundle().apply {}
-//            }
-//    }
+        _fragBinding = FragmentBookBinding.inflate(inflater, container, false)
+        val root = fragBinding.root
+        activity?.title = getString(R.string.bookTitle)
+
+
+        setButtonListener(fragBinding)
+        return root;
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance() =
+            BookFragment().apply {
+                arguments = Bundle().apply {}
+            }
+    }
 
     fun setButtonListener(layout: FragmentBookBinding) {
-//        layout.donateButton.setOnClickListener {
-//            val amount = if (layout.paymentAmount.text.isNotEmpty())
-//                layout.paymentAmount.text.toString().toInt() else layout.amountPicker.value
-//            if(totalDonated >= layout.progressBar.max)
-//                Toast.makeText(context,"Donate Amount Exceeded!",Toast.LENGTH_LONG).show()
-//            else {
-//                val paymentmethod = if(layout.paymentMethod.checkedRadioButtonId == R.id.Direct) "Direct" else "Paypal"
-//                totalDonated += amount
-//                layout.totalSoFar.text = "$$totalDonated"
-//                layout.progressBar.progress = totalDonated
-//                app.donationsStore.create(DonationModel(paymentmethod = paymentmethod,amount = amount))
-//            }
-//        }
-//    }
+        layout.navBook.setOnClickListener {
+            val amount = 15.00
+            val appDate = layout.calendarView3.date
+            val appTime = layout.spinner.selectedItem
+            layout.textView2.text = amount.toString()
+            layout.textView3.text = amount.toString()
+
+              //  app.donationsStore.create(DonationModel(paymentmethod = paymentmethod,amount = amount))
+
+        }
+    }
     }
 //
 //    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-//        inflater.inflate(R.menu.menu_donate, menu)
+//        inflater.inflate(R.menu.menu_book, menu)
 //        super.onCreateOptionsMenu(menu, inflater)
 //    }
 //
@@ -98,4 +88,4 @@ class BookFragment : Fragment() {
 //        fragBinding.progressBar.progress = totalDonated
 //        fragBinding.totalSoFar.text = "$$totalDonated"
 //    }
-}
+

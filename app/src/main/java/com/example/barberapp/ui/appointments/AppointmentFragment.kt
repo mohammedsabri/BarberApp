@@ -28,27 +28,27 @@ class AppointmentFragment : Fragment() {
         setHasOptionsMenu(true)
     }
 
-//    override fun onCreateView(
-//        inflater: LayoutInflater, container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View? {
-//        _fragBinding = FragmentAppointmentBinding.inflate(inflater, container, false)
-//        val root = fragBinding.root
-//
-//        fragBinding.recyclerView.layoutManager = LinearLayoutManager(activity)
-//        appointmentViewModel = ViewModelProvider(this).get(AppointmentViewModel::class.java)
-//        appointmentViewModel.observableBooksList.observe(viewLifecycleOwner, Observer {
-//                books ->
-//            books?.let { render(books) }
-//        })
-//
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _fragBinding = FragmentAppointmentsBinding.inflate(inflater, container, false)
+        val root = fragBinding.root
+
+        fragBinding.recyclerView.layoutManager = LinearLayoutManager(activity)
+        appointmentViewModel = ViewModelProvider(this).get(AppointmentViewModel::class.java)
+        appointmentViewModel.observableBooksList.observe(viewLifecycleOwner, Observer {
+                books ->
+            books?.let { render(books) }
+        })
+
 //        val fab: FloatingActionButton = fragBinding.fab
 //        fab.setOnClickListener {
 //            val action = AppoimtmentFragmentDirections.actionAppointmentFragmentToBookFragment()
 //            findNavController().navigate(action)
 //        }
-//        return root
-//    }
+        return root
+    }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_appointment, menu)
@@ -60,16 +60,16 @@ class AppointmentFragment : Fragment() {
             requireView().findNavController()) || super.onOptionsItemSelected(item)
     }
 
-//    private fun render(booksList: List<BookModel>) {
-//        fragBinding.recyclerView.adapter = BookAdapter(booksList,this)
-//        if (booksList.isEmpty()) {
-//            fragBinding.recyclerView.visibility = View.GONE
-//            fragBinding.booksNotFound.visibility = View.VISIBLE
-//        } else {
-//            fragBinding.recyclerView.visibility = View.VISIBLE
-//            fragBinding.booksNotFound.visibility = View.GONE
-//        }
-//    }
+    private fun render(booksList: List<BookModel>) {
+        fragBinding.recyclerView.adapter = BookAdapter(booksList)//,this)
+        if (booksList.isEmpty()) {
+            fragBinding.recyclerView.visibility = View.GONE
+           // fragBinding.booksNotFound.visibility = View.VISIBLE
+        } else {
+            fragBinding.recyclerView.visibility = View.VISIBLE
+           // fragBinding.booksNotFound.visibility = View.GONE
+        }
+    }
 //
 //    override fun onBookClick(book: BookModel) {
 //        val action = AppoimtmentFragmentDirections.actionAppointmentFragmentToBookDetailFragment(book.id)

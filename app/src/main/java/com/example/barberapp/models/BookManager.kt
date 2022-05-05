@@ -1,5 +1,7 @@
 package com.example.barberapp.models
 
+import timber.log.Timber
+
 
 object BookManager : BookStore {
 
@@ -22,11 +24,11 @@ object BookManager : BookStore {
     override fun create(book: BookModel) {
         book.id = getId()
         books.add(book)
-//        logAll()
+        logAll()
     }
 
-//    fun logAll() {
-//        Timber.v("** Appointments List **")
-//        appointments.forEach { Timber.v("Appointment ${it}") }
-//    }
+    fun logAll() {
+        Timber.v("** Appointments List **")
+        books.forEach { Timber.v("Appointment ${it}") }
+    }
 }

@@ -11,7 +11,8 @@ import java.util.*
 data class BookModel(
     var id: Long = 0,
     val service: String = "haircut",
-    val appDate: Date,
-    val time: Double,
+    val appDate: Long,
+    val time: String,
+    val email: String = "moe@sabri.com",
     val barbername: String ="moe",
     val cost: Int = 15) : Parcelable
