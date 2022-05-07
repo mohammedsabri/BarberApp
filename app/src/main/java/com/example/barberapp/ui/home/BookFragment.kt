@@ -15,6 +15,8 @@ import com.example.barberapp.databinding.FragmentBookBinding
 import com.example.barberapp.main.BookXApp
 import com.example.barberapp.models.BookModel
 import com.example.barberapp.ui.appointments.AppointmentFragment
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class BookFragment : Fragment() {
@@ -87,11 +89,14 @@ class BookFragment : Fragment() {
                 val appTime = layout.spinner.selectedItem
                 layout.textView2.text = amount.toString()
                 layout.textView3.text = amount.toString()
+
+                val format = SimpleDateFormat("yyyy.MM.dd")
+                val date  = format.format(appDate)
                 bookViewModel.addBook(
                     BookModel(
-                        appDate = appDate, time = appTime as String,
-                        cost = 15, barbername = "moe",
-                        service = "haircut",
+                        appDate = date , time = appTime as String,
+                        cost = 15, barbername = "Moe",
+                        service = "Haircut",
                     email = "moe@me.com")//loggedInViewModel.liveFirebaseUser.value?.email!!)
                 )
 

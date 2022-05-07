@@ -22,4 +22,10 @@
         android:name="com.example.barberapp.ui.appointments.AppointmentFragment"
         android:label="@string/menu_appointments"
         tools:layout="@layout/fragment_appointments" />
+
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.example.barberapp.ui.about.AboutFragment"
+        android:label="@string/menu_About"
+        tools:layout="@layout/fragment_about" />
 </navigation>

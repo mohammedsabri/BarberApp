@@ -14,12 +14,12 @@
             android:title="@string/menu_gallery" />
         <item
             android:id="@+id/nav_appointments"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_menu_appointments"
             android:title="@string/menu_appointments" />
 
         <item
-            android:id="@+id/aboutFragment"
-            android:icon="@drawable/ic_menu_aboutus"
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_menu_about"
             android:title="@string/action_About" />
     </group>
 

@@ -25,6 +25,7 @@ object BookManager : BookStore {
         book.id = getId()
         books.add(book)
         logAll()
+
     }
 
     fun logAll() {

@@ -29,8 +29,10 @@
     <string name="hint_cost">cost</string>
     <string name="hint_barber_name">barber name</string>
     <string name="action_About">About</string>
-    <string name="aboutus_message">message</string>
     <string name="moe">barber name</string>
+    <string name="aboutus_message">Hi, I\'m Homer\n\nPlease vote for me.\n\n Please Please Please Please!!</string>
+    <string name="menu_About">About</string>
+
 
     <string-array name="time_array">
         <item>11:00</item>
