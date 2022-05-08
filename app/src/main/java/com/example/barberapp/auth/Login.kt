@@ -16,35 +16,35 @@ import timber.log.Timber
 
 class Login : AppCompatActivity() {
 
-//    private lateinit var loginRegisterViewModel : LoginRegisterViewModel
+    private lateinit var loginRegisterViewModel : LoginRegisterViewModel
     private lateinit var loginBinding : LoginBinding
 
-//    public override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        loginBinding = LoginBinding.inflate(layoutInflater)
-//        setContentView(loginBinding.root)
-//
-//        loginBinding.emailSignInButton.setOnClickListener {
-//            signIn(loginBinding.fieldEmail.text.toString(),
-//                    loginBinding.fieldPassword.text.toString())
-//        }
-//        loginBinding.emailCreateAccountButton.setOnClickListener {
-//            createAccount(loginBinding.fieldEmail.text.toString(),
-//                    loginBinding.fieldPassword.text.toString())
-//        }
-//    }
+    public override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        loginBinding = LoginBinding.inflate(layoutInflater)
+        setContentView(loginBinding.root)
 
-//    public override fun onStart() {
-//        super.onStart()
-//        // Check if user is signed in (non-null) and update UI accordingly.
-//        loginRegisterViewModel = ViewModelProvider(this).get(LoginRegisterViewModel::class.java)
-//        loginRegisterViewModel.liveFirebaseUser.observe(this, Observer
-//        { firebaseUser -> if (firebaseUser != null)
-//            startActivity(Intent(this, MainActivity::class.java)) })
-//
-//        loginRegisterViewModel.firebaseAuthManager.errorStatus.observe(this, Observer
-//            { status -> checkStatus(status) })
-//    }
+        loginBinding.emailSignInButton.setOnClickListener {
+            signIn(loginBinding.fieldEmail.text.toString(),
+                    loginBinding.fieldPassword.text.toString())
+        }
+        loginBinding.emailCreateAccountButton.setOnClickListener {
+            createAccount(loginBinding.fieldEmail.text.toString(),
+                    loginBinding.fieldPassword.text.toString())
+        }
+    }
+
+    public override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        loginRegisterViewModel = ViewModelProvider(this).get(LoginRegisterViewModel::class.java)
+        loginRegisterViewModel.liveFirebaseUser.observe(this, Observer
+        { firebaseUser -> if (firebaseUser != null)
+            startActivity(Intent(this, MainActivity::class.java)) })
+
+        loginRegisterViewModel.firebaseAuthManager.errorStatus.observe(this, Observer
+            { status -> checkStatus(status) })
+    }
 
     //Required to exit app from Login Screen - must investigate this further
     override fun onBackPressed() {
@@ -53,19 +53,19 @@ class Login : AppCompatActivity() {
         finish()
     }
 
-//    private fun createAccount(email: String, password: String) {
-//        Timber.d("createAccount:$email")
-//        if (!validateForm()) { return }
-//
-//        loginRegisterViewModel.register(email,password)
-//    }
-//
-//    private fun signIn(email: String, password: String) {
-//        Timber.d("signIn:$email")
-//        if (!validateForm()) { return }
-//
-//        loginRegisterViewModel.login(email,password)
-//    }
+    private fun createAccount(email: String, password: String) {
+        Timber.d("createAccount:$email")
+        if (!validateForm()) { return }
+
+        loginRegisterViewModel.register(email,password)
+    }
+
+    private fun signIn(email: String, password: String) {
+        Timber.d("signIn:$email")
+        if (!validateForm()) { return }
+
+        loginRegisterViewModel.login(email,password)
+    }
 
     private fun checkStatus(error:Boolean) {
             if (error)
