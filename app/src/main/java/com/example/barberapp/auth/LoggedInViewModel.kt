@@ -3,6 +3,7 @@ package com.example.barberapp.auth
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import com.example.barberapp.firebase.FirebaseAuthManager
 import com.google.firebase.auth.FirebaseUser
 
 

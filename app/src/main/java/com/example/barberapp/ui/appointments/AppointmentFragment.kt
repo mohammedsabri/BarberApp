@@ -10,10 +10,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.barberapp.R
-import com.example.barberapp.adapters.BookAdapter
+import com.example.barberapp.adapters.BookClickListener
 import com.example.barberapp.databinding.FragmentAppointmentsBinding
 import com.example.barberapp.main.BookXApp
 import com.example.barberapp.models.BookModel
+import com.example.barberapp.utils.createLoader
+import com.example.barberapp.utils.showLoader
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class AppointmentFragment : Fragment() {
@@ -34,6 +36,7 @@ class AppointmentFragment : Fragment() {
     ): View? {
         _fragBinding = FragmentAppointmentsBinding.inflate(inflater, container, false)
         val root = fragBinding.root
+        loader = createLoader(requireActivity())
 
         fragBinding.recyclerView.layoutManager = LinearLayoutManager(activity)
         appointmentViewModel = ViewModelProvider(this).get(AppointmentViewModel::class.java)
@@ -61,7 +64,7 @@ class AppointmentFragment : Fragment() {
     }
 
     private fun render(booksList: List<BookModel>) {
-        fragBinding.recyclerView.adapter = BookAdapter(booksList)//,this)
+        fragBinding.recyclerView.adapter = BookClickListener.BookAdapter(booksList)//,this)
         if (booksList.isEmpty()) {
             fragBinding.recyclerView.visibility = View.GONE
            // fragBinding.booksNotFound.visibility = View.VISIBLE
@@ -75,6 +78,35 @@ class AppointmentFragment : Fragment() {
 //        val action = AppoimtmentFragmentDirections.actionAppointmentFragmentToBookDetailFragment(book.id)
 //        findNavController().navigate(action)
 //    }
+override fun onBookClick(book: BookModel) {
+    val action = AppointmentFragmentDirections.actionAppointmentFragmentToBookDetailFragment(book.uid!!)
+
+    if(!appointmentViewModel.readOnly.value!!)
+        findNavController().navigate(action)
+}
+
+
+
+
+
+
+    private fun setSwipeRefresh() {
+        fragBinding.swiperefresh.setOnRefreshListener {
+            fragBinding.swiperefresh.isRefreshing = true
+            showLoader(loader, "Downloading Books")
+            if(appointmentViewModel.readOnly.value!!)
+                appointmentViewModel.loadAll()
+            else
+                appointmentViewModel.load()
+        }
+    }
+
+
+
+    private fun checkSwipeRefresh() {
+    if (fragBinding.swiperefresh.isRefreshing)
+        fragBinding.swiperefresh.isRefreshing = false
+}
 
     override fun onResume() {
         super.onResume()

@@ -5,6 +5,7 @@ import androidx.annotation.NonNull
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.barberapp.firebase.FirebaseAuthManager
 import com.google.firebase.auth.FirebaseUser
 
 
